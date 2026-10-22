@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+
+    <!-- Google Fonts Khmer -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Moul&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- html2canvas Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        khmer: ['Kantumruy Pro', 'sans-serif'],
+                        moul: ['Moul', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-khmer min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800/80 backdrop-blur border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-moul text-indigo-400">Name Card </h1>
+            <button onclick="openQRModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 transition">
+                <i class="fa-solid fa-qrcode"></i> ចុចបង្កើតទំនាក់ទំនង
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Profile -->
+    <main class="max-w-4xl mx-auto px-4 py-10 w-full space-y-10">
+
+        <!-- Hero Card -->
+        <section class="bg-slate-800 rounded-2xl p-6 sm:p-10 border border-slate-700 text-center sm:text-left flex flex-col sm:flex-row items-center gap-8 shadow-xl">
+            <img id="avatar" src="my-photo.jpg" alt="Profile Avatar" class="w-36 h-36 rounded-full border-4 border-indigo-500 bg-slate-700 object-cover shadow-lg">
+            <div class="space-y-3">
+                <h2 id="fullName" class="text-3xl sm:text-4xl font-moul text-white">Heang Mengly</h2>
+                <p id="jobTitle" class="text-indigo-400 font-semibold text-lg">មានទទួលដំឡើងប្រព័ន្ធអគ្គិសនីនិងជួសជុលប្រព័ន្ធឆ្លង</p>
+                <p id="bio" class="text-slate-300 max-w-lg leading-relaxed">
+                    ស្វាគមន៍មកកាន់វេបសាយផ្ទាល់ខ្លួនរបស់ខ្ញុំ! ដើម្បីជួយសម្រួលដល់ការទំនាក់ទំនងក្នុងសម័យអភិវឌ្ឍជឿនលឿន។
+                </p>
+                
+                <!-- Social Links -->
+                <div class="flex flex-wrap justify-center sm:justify-start gap-4 pt-2">
+                    <a id="phoneBtn" href="tel:+85593513959" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-full text-white transition"><i class="fa-solid fa-phone"></i></a>
+                    <a id="emailBtn" href="mailto:mengly.id2021@gmail.com" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-full text-white transition"><i class="fa-solid fa-envelope"></i></a>
+                    <a id="telegramBtn" href="https://t.me/Mengly_Electrical" target="_blank" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-full text-sky-400 transition"><i class="fa-brands fa-telegram"></i></a>
+                    <a id="facebookBtn" href="https://www.facebook.com/share/18sGwZFfQQ/?mibextid=wwXIfr" target="_blank" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-full text-blue-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a id="mapBtn" href="https://maps.app.goo.gl/SNwga2mRTkRsm6Qp7?g_st=ic" target="_blank" class="bg-slate-700 hover:bg-slate-600 p-3 rounded-full text-red-400 transition" title="ទីតាំងរបស់ខ្ញុំនៅលើ Google Maps">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="bg-slate-800 rounded-2xl p-6 border border-slate-700 shadow-xl space-y-4">
+            <h3 class="text-xl font-bold text-indigo-400 border-b border-slate-700 pb-2 flex items-center gap-2">
+                <i class="fa-solid fa-code"></i> ជំនាញ / Skills
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                <div class="bg-slate-700/50 p-4 rounded-xl border border-slate-600">Install electrical network</div>
+                <div class="bg-slate-700/50 p-4 rounded-xl border border-slate-600">PLC Program</div>
+                <div class="bg-slate-700/50 p-4 rounded-xl border border-slate-600">Basic Autocad</div>
+                <div class="bg-slate-700/50 p-4 rounded-xl border border-slate-600">Repair electrical network</div>
+            </div>
+        </section>
+
+        <!-- Download Image Action -->
+        <section class="text-center">
+            <button onclick="downloadAsImage()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition flex items-center gap-2 mx-auto">
+                <i class="fa-solid fa-image text-xl"></i> ទាញយកជារូបភាព (PNG)
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-slate-400 text-sm">
+        © 2026 វេបសាយផ្ទាល់ខ្លួន | រក្សាសិទ្ធិគ្រប់យ៉ាង
+    </footer>
+
+    <!-- Modal for QR vCard -->
+    <div id="qrModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-sm w-full text-center space-y-4 shadow-2xl relative">
+            <button onclick="closeQRModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-indigo-400">ស្កេនដើម្បីរក្សាទុកទំនាក់ទំនង</h3>
+            
+            <div class="flex justify-center items-center bg-white p-4 rounded-xl mx-auto w-fit">
+                <img id="qrImage" src="" alt="QR Code" class="w-48 h-48 object-contain">
+            </div>
+
+            <p class="text-xs text-slate-400">ប្រើប្រាស់កាមេរ៉ាទូរស័ព្ទដើម្បីស្កេនរក្សាទុក VCard</p>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // ព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នក
+        const profile = {
+            name: "ហ៊ាង ម៉េងលី",
+            title: "ដំឡើងនិងជួសជុលប្រព័ន្ធអគ្គិសនី",
+            phone: "+85593513959",
+            email: "mengly.id2021@gmail.com",
+            telegram: "https://t.me/Mengly_Electrical"
+        };
+
+        // ទម្រង់ vCard 3.0 Standard
+        const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:${profile.name}
+TITLE:${profile.title}
+TEL;TYPE=CELL:${profile.phone}
+EMAIL:${profile.email}
+END:VCARD`;
+
+        // មុខងារបើក Modal និងបង្កើត QR Code ស្វ័យប្រវត្តិ
+        function openQRModal() {
+            document.getElementById('qrModal').classList.remove('hidden');
+            document.getElementById('qrModal').classList.add('flex');
+
+            // បង្កើត QR Code តាមរយៈ API យ៉ាងស្រួល
+            const encodedData = encodeURIComponent(vCardData);
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodedData}`;
+            document.getElementById('qrImage').src = qrUrl;
+        }
+
+        // មុខងារបិទ Modal
+        function closeQRModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+            document.getElementById('qrModal').classList.remove('flex');
+        }
+
+        // មុខងារ Download វេបសាយជារូបភាព PNG
+        function downloadAsImage() {
+            const targetElement = document.querySelector('main');
+            const btn = event.currentTarget;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xl"></i> កំពុងបង្កើតរូបភាព...`;
+            btn.disabled = true;
+
+            html2canvas(targetElement, {
+                scale: 2, 
+                useCORS: true, 
+                backgroundColor: '#0f172a' 
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Mengly-Profile.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }).catch(err => {
+                console.error("មានបញ្ហាពេលកត់ត្រារូបភាព:", err);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
